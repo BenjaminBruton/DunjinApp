@@ -1,10 +1,20 @@
 ﻿using System;
+using Xamarin.Forms;
+
 namespace Dunjin.Model
 {
-    public class ViewCellPlaceholderControl
+    public class ExtendedViewCell : ViewCell
     {
-        public ViewCellPlaceholderControl()
+        public static readonly BindableProperty SelectedBackgroundColorProperty =
+            BindableProperty.Create("SelectedBackgroundColor",
+                                    typeof(Color),
+                                    typeof(ExtendedViewCell),
+                                    Color.Default);
+
+        public Color SelectedBackgroundColor
         {
+            get { return (Color)GetValue(SelectedBackgroundColorProperty); }
+            set { SetValue(SelectedBackgroundColorProperty, value); }
         }
     }
 }

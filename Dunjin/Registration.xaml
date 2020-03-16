@@ -1,5 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dunjin.Registration">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dunjin.Registration"
+             BackgroundImageSource="parchment2.jpg">
+    <StackLayout VerticalOptions="Center"
+                 Margin="20">
+        <Image/>
+        <Entry x:Name="userName"
+               Placeholder="USERNAME"
+               Margin="50,0,50,0"/>
+        <Entry x:Name="emailEntry"
+               Placeholder="EMAIL"
+               Keyboard="Email"
+               Margin="50,0,50,0"/>
+        <Entry x:Name="password"
+               Placeholder="PASSWORD"
+               IsPassword="True"
+               Margin="50,0,50,0"/>
+        <Entry x:Name="passwordConfirm"
+               Placeholder="CONFIRM PASSWORD"
+               IsPassword="True"
+               Margin="50,0,50,0"/>
+        <Button x:Name="registerButton"
+                Margin="50,20,50,20"
+                Text="REGISTER"
+                BackgroundColor="DarkRed"              
+                TextColor="Tan"
+                Clicked="registerButton_Clicked"/>
+        <Button x:Name="cancelButton"
+                Margin="50,20,50,20"
+                Text="CANCEL"
+                BackgroundColor="DarkRed"              
+                TextColor="Tan"
+                Clicked="cancelButton_Clicked"/>
+
+
+    </StackLayout>
 </ContentPage>

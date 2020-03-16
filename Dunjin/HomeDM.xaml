@@ -1,5 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dunjin.HomeDM">
-    <ContentPage.Content>
-    </ContentPage.Content>
-</ContentPage>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dunjin.HomeDM"
+             BarBackgroundColor="DarkRed"
+             BarTextColor="Tan">
+
+    <ContentPage Title="Players" BackgroundImageSource="parchment2.jpg">
+        <StackLayout>
+            <Label x:Name="campaignDetails"
+                   TextColor="DarkRed"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Large"
+                   Margin="50,5,50,5"/>
+            <Label Text="Characters in Campaign"
+                   TextColor="DarkRed"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Subtitle"
+                   Margin="50,0,50,0"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Player Rolls" BackgroundImageSource="parchment2.jpg">
+        <StackLayout>
+            
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Dice" BackgroundImageSource="parchment2.jpg">
+        <StackLayout>
+            
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Encounters" BackgroundImageSource="parchment2.jpg">
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Label TextColor="DarkRed" FontSize="Large">FEATURE COMING SOON</Label>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Messaging" BackgroundImageSource="parchment2.jpg">
+        <StackLayout>
+            
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

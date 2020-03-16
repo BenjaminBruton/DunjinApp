@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dunjin.JoinCampaign"
+             BackgroundImageSource="parchment2.jpg">
+    <StackLayout VerticalOptions="Center"
+                 Margin="20">
+        <Label FontFamily="sans-serif"
+               FontSize="Title"
+               FontAttributes="Bold"
+               HeightRequest="100"
+               HorizontalOptions="CenterAndExpand"
+               Margin="50,20,50,20">Join Campaign</Label>
+        <Entry x:Name="campNameEntry"
+               Placeholder="CAMPAIGN NAME"
+               Margin="50,0,50,0"/>
+        <Entry x:Name="passwordEntry"
+               Placeholder="PASSWORD"
+               IsPassword="True"
+               Margin="50,0,50,0"/>
+        <Button x:Name="JoinButton"
+                Margin="50,20,50,5"
+                Text="JOIN NOW"
+                BackgroundColor="DarkRed"
+                TextColor="Tan"
+                Clicked="JoinButton_Clicked"/>
+
+
+    </StackLayout>
+</ContentPage>

@@ -1,5 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dunjin.RoleSelection">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dunjin.RoleSelection"
+             BackgroundImageSource="parchment2.jpg">
+    <StackLayout VerticalOptions="Center"
+                 Margin="20">
+        <Label HorizontalOptions="Center"              
+               FontSize="Large"
+               Margin="0,0,0,50"
+               Text="Choose an adventure role."
+               TextColor="DarkRed"
+               >
+            
+        </Label>
+        <Button x:Name="dungeonMaster"
+                Margin="50,20,50,20"
+                Text="DUNGEON MASTER"
+                BackgroundColor="DarkRed"              
+                TextColor="Tan"
+                Clicked="dungeonMaster_Clicked"/>
+        <Button x:Name="playerCharacter"
+                Margin="50,20,50,20"
+                Text="PLAYER CHARACTER"
+                BackgroundColor="DarkRed"              
+                TextColor="Tan"
+                Clicked="playerCharacter_Clicked"/>
+
+    </StackLayout>
 </ContentPage>

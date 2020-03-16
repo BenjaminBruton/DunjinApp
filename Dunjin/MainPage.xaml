@@ -1,7 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Dunjin.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Dunjin.MainPage"
+             BackgroundImageSource="parchment2.jpg">
+            
+    <StackLayout VerticalOptions="Center"
+                 Margin="20">
+        <Label FontFamily="sans-serif"
+               FontSize="Title"
+               FontAttributes="Bold"
+               HeightRequest="100"
+               HorizontalOptions="CenterAndExpand"
+               Margin="50,20,50,20">dunjin</Label>
+        <Entry x:Name="emailEntry"
+               Placeholder="EMAIL ADDRESS"
+               Keyboard="Email"
+               Margin="50,0,50,0"/>
+        <Entry x:Name="passwordEntry"
+               Placeholder="PASSWORD"
+               IsPassword="True"
+               Margin="50,0,50,0"/>
+        <Button x:Name="LoginButton"
+                Margin="50,20,50,5"
+                Text="LOG IN"
+                BackgroundColor="DarkRed"
+                TextColor="Tan"
+                Clicked="LoginButton_Clicked"/>
+        <Button x:Name="ForgotPassword"
+                Margin="150,0,50,0"
+                Text="Forgot Password?"
+                BackgroundColor="Transparent"
+                TextColor="DarkRed"/>
+        <Button x:Name="RegisterButton"
+                Margin="50,30,50,25"
+                Text="REGISTER HERE"
+                BackgroundColor="DarkRed"
+                TextColor="Tan"
+                Clicked="RegisterButton_Clicked"/>
+
+
     </StackLayout>
 </ContentPage>

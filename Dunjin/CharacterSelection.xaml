@@ -1,5 +1,41 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dunjin.CharacterSelection">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:Dunjin.Model"
+             x:Class="Dunjin.CharacterSelection"
+             BackgroundImageSource="parchment2.jpg">
+    <StackLayout VerticalOptions="CenterAndExpand"
+                 x:Name="characterList">
+        <Label Text="Select 'Join Campaign' to start or choose an option below to continue."
+               TextColor="DarkRed"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               Margin="50,10,50,10"/>
+        <Button x:Name="newCampaign"
+                Text="JOIN CAMPAIGN"
+                Margin="50,20,50,20"
+                BackgroundColor="DarkRed"
+                TextColor="Tan"
+                Clicked="newCampaign_Clicked"/>
+        <ListView x:Name="characterListView"
+                  ItemsSource="{Binding Campaigns}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <customControls:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="Center">                           
+                                <Label Text="{Binding CharName}"
+                                       VerticalOptions="Center"
+                                       FontSize="Large"
+                                       TextColor="DarkRed"/>
+                            </StackLayout>
+
+                        </ViewCell.View>
+                    </customControls:ExtendedViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+                
+    </StackLayout>
 </ContentPage>

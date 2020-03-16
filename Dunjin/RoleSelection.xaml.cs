@@ -11,5 +11,15 @@ namespace Dunjin
         {
             InitializeComponent();
         }
+
+        private async void dungeonMaster_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new CampaignSelection());
+        }
+
+        private async void playerCharacter_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new CharacterSelection());
+        }
     }
 }

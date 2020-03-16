@@ -1,5 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dunjin.NewCampaign">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dunjin.NewCampaign"
+             BackgroundImageSource="parchment2.jpg">
+    <StackLayout>
+        <Entry x:Name="campaignNameEntry"
+               Placeholder="CAMPAIGN NAME"
+               Margin="50,25,50,25"/>
+        <Entry x:Name="passwordEntry"
+               Placeholder="PASSWORD"
+               IsPassword="True"
+               Margin="50,0,50,10"/>
+        <Entry x:Name="passwordConfirm"
+               Placeholder="CONFIRM PASSWORD"
+               IsPassword="True"
+               Margin="50,0,50,10"/>
+        <Button x:Name="createButton"
+                Margin="50,20,50,10"
+                Text="CREATE CAMPAIGN"
+                BackgroundColor="DarkRed"
+                TextColor="Tan"
+                Clicked="createButton_Clicked"/>       
+    </StackLayout>
 </ContentPage>

@@ -1,5 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dunjin.HomePlayer">
-    <ContentPage.Content>
-    </ContentPage.Content>
-</ContentPage>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Dunjin.HomePlayer"
+            BarBackgroundColor="DarkRed"
+            BarTextColor="Tan">
+
+    <ContentPage Title="Character" BackgroundImageSource="parchment2.jpg">
+        <StackLayout>
+            <Label x:Name="characterDetails"
+                   TextColor="DarkRed"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Large"
+                   Margin="50,5,50,5"/>
+            <Label Text="Characters"
+                   TextColor="DarkRed"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Subtitle"
+                   Margin="50,0,50,0"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Skills|Spells" BackgroundImageSource="parchment2.jpg">
+
+    </ContentPage>
+    <ContentPage Title="Dice" BackgroundImageSource="parchment2.jpg">
+
+    </ContentPage>
+    <ContentPage Title="Messaging" BackgroundImageSource="parchment2.jpg">
+
+    </ContentPage>
+</TabbedPage>
