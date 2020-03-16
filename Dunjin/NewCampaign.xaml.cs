@@ -47,11 +47,11 @@ namespace Dunjin
                         await Navigation.PushAsync(new CampaignSelection());
                     }
                 }
-                catch (NullReferenceException nre)
+                catch (NullReferenceException)
                 {
-                    await DisplayAlert("Failure", "Campaign Was Not Created", "Ok");
+                    await DisplayAlert("Failure", "Campaign Was Not Created, nullRev", "Ok");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     await DisplayAlert("Failure", "Campaign Was Not Created", "Ok");
                 }

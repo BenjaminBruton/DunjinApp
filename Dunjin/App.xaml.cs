@@ -15,6 +15,7 @@ namespace Dunjin
 
         public static Users user = new Users();
         public static Campaigns campaign = new Campaigns();
+        public static Characters character = new Characters();
 
         public App()
         {

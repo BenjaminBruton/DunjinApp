@@ -8,7 +8,7 @@ namespace Dunjin
 {
     public partial class JoinCampaign : ContentPage
     {
-        Characters character;
+
         public JoinCampaign()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace Dunjin
 
             if (isCampNameEmpty || isPasswordEmpty)
             {
-
+                await DisplayAlert("Error", "Fields cannot be empty", "Ok");
             }
             else
             {
@@ -31,17 +31,44 @@ namespace Dunjin
                 if (campaign != null)
                 {
                     App.campaign = campaign;
-
+                      
                     if (campaign.Password == passwordEntry.Text)
-                        await Navigation.PushAsync(new HomePlayer(character));
-                    else
-                        await DisplayAlert("Error", "Campaign Name or Password are Incorrect", "Ok");
+                    {
+                            
+                    Characters character = new Characters()
+                    {
+                        UserId = App.user.Id.ToString(),
+                        CampaignId = App.campaign.Id.ToString(),
+                        CharName = "Change This",
+                        CharClass = "Change This",
+                        CharRace = "Change This",
+                        CharLevel = 0,
+                        CharXP = 0,
+                        CharStr = 0,
+                        CharDex = 0,
+                        CharCon = 0,
+                        CharInt = 0,
+                        CharWis = 0,
+                        CharCha = 0,
+                        CharInit = 0
+                    };
+
+                     await App.MobileService.GetTable<Characters>().InsertAsync(character);
+
+                     await DisplayAlert("Success", "Campaign Successfully Joined", "Ok");
+
+                     await Navigation.PushAsync(new CharacterSelection());
+                        }
+                     else
+                     {
+                         await DisplayAlert("Error", "There was an Error Joining Campaign", "Ok");
+                     }
                 }
+                
                 else
                 {
-                    await DisplayAlert("Error", "There was an Error Logging You In", "Ok");
+                    await DisplayAlert("Error", "Campaign Name or Password are Incorrect", "Ok");
                 }
-
             }
         }
     }

@@ -18,7 +18,7 @@
                 TextColor="Tan"
                 Clicked="newCampaign_Clicked"/>
         <ListView x:Name="characterListView"
-                  ItemsSource="{Binding Campaigns}">
+                  ItemsSource="{Binding Characters}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <customControls:ExtendedViewCell SelectedBackgroundColor="LightGray">

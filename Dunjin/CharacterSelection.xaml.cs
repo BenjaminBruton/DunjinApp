@@ -24,7 +24,7 @@ namespace Dunjin
             base.OnAppearing();
 
             var characters = await App.MobileService.GetTable<Characters>()
-                .Where(chara => chara.UserId == App.user.Id).ToListAsync();
+                .Where(cha => cha.UserId == App.character.UserId).ToListAsync();
             characterListView.ItemsSource = characters;
 
         }

@@ -30,10 +30,12 @@
     <Compile Remove="Persistence\ISQLiteDb.cs" />
     <Compile Remove="PlayerHome %28copy%29.xaml.cs" />
     <Compile Remove="JoinCampaign.cs" />
+    <Compile Remove="PlayerHome %28copy%29.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="PlayerHome %28copy%29.xaml" />
     <EmbeddedResource Remove="PlayerHome.xaml" />
+    <EmbeddedResource Remove="PlayerHome %28copy%29.xaml" />
     <EmbeddedResource Remove="PlayerHome %28copy%29.xaml" />
     <EmbeddedResource Remove="PlayerHome %28copy%29.xaml" />
   </ItemGroup>
