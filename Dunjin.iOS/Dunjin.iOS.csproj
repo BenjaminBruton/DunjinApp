@@ -141,5 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\parchment2.jpg" />
+    <BundleResource Include="Resources\dunjin1.png" />
   </ItemGroup>
 </Project>

@@ -7,35 +7,27 @@
              x:Class="Dunjin.MainPage"
              BackgroundImageSource="parchment2.jpg">
             
-    <StackLayout VerticalOptions="Center"
-                 Margin="20">
-        <Label FontFamily="sans-serif"
-               FontSize="Title"
-               FontAttributes="Bold"
-               HeightRequest="100"
-               HorizontalOptions="CenterAndExpand"
-               Margin="50,20,50,20">dunjin</Label>
+    <StackLayout>
+        <Image Source="dunjin1.png"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"/>
+               
         <Entry x:Name="emailEntry"
                Placeholder="EMAIL ADDRESS"
                Keyboard="Email"
-               Margin="50,0,50,0"/>
+               Margin="50,5,50,5"/>
         <Entry x:Name="passwordEntry"
                Placeholder="PASSWORD"
                IsPassword="True"
-               Margin="50,0,50,0"/>
+               Margin="50,5,50,5"/>
         <Button x:Name="LoginButton"
-                Margin="50,20,50,5"
+                Margin="50,0,50,0"
                 Text="LOG IN"
                 BackgroundColor="DarkRed"
                 TextColor="Tan"
                 Clicked="LoginButton_Clicked"/>
-        <Button x:Name="ForgotPassword"
-                Margin="150,0,50,0"
-                Text="Forgot Password?"
-                BackgroundColor="Transparent"
-                TextColor="DarkRed"/>
         <Button x:Name="RegisterButton"
-                Margin="50,30,50,25"
+                Margin="50,5,50,5"
                 Text="REGISTER HERE"
                 BackgroundColor="DarkRed"
                 TextColor="Tan"
