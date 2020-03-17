@@ -14,25 +14,27 @@ namespace Dunjin
             characterListView.ItemTapped += new EventHandler<ItemTappedEventArgs>(CharacterClicked);
         }
 
-        private async void newCampaign_Clicked(System.Object sender, System.EventArgs e)
-        {
-            await Navigation.PushAsync(new JoinCampaign());
-        }
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             var characters = await App.MobileService.GetTable<Characters>()
-                .Where(cha => cha.UserId == App.character.UserId).ToListAsync();
+                .Where(cha => cha.UserId == App.user.Id).ToListAsync();
             characterListView.ItemsSource = characters;
 
         }
 
+        private async void newCampaign_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new JoinCampaign());
+        }
+
+        
+
         private async void CharacterClicked(object sender, ItemTappedEventArgs e)
         {
             Characters character = (Characters)e.Item;
-            await Navigation.PushAsync(new HomeDM(character));
+            await Navigation.PushAsync(new HomePlayer(character));
         }
     }
 }

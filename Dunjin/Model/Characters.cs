@@ -6,7 +6,7 @@ namespace Dunjin.Model
     public class Characters
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string CharName { get; set; }
         public string CharClass { get; set; }

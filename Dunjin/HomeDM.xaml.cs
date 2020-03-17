@@ -21,9 +21,5 @@ namespace Dunjin
             campaignDetails.Text = campaign.CampaignName;
         }
 
-        public HomeDM(Characters character)
-        {
-            this.character = character;
-        }
     }
 }

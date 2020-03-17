@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dunjin.Model;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace Dunjin
@@ -18,6 +19,9 @@ namespace Dunjin
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
+            //Added due to nullValue JSON exception
+            //var serializerSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
 
             var campaigns = await App.MobileService.GetTable<Campaigns>()
                 .Where(camp => camp.UserId == App.user.Id).ToListAsync();
