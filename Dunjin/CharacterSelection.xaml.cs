@@ -19,10 +19,21 @@ namespace Dunjin
             base.OnAppearing();
 
             var characters = await App.MobileService.GetTable<Characters>()
-                .Where(cha => cha.UserId == App.user.Id).ToListAsync();
-            characterListView.ItemsSource = characters;
+                .Where(cha => cha.CampaignId == App.campaign.Id).ToListAsync();
+
+            if (characters != null)
+            {
+                var updatedCharacter = await App.MobileService.GetTable<Characters>()
+            .Where(cha => cha.UserId == App.user.Id).ToListAsync();
+
+                characterListView.ItemsSource = updatedCharacter;
+            }
+            
+
+            //characterListView.ItemsSource = characters;
 
         }
+
 
         private async void newCampaign_Clicked(System.Object sender, System.EventArgs e)
         {

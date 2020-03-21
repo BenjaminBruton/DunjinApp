@@ -21,5 +21,14 @@ namespace Dunjin
             campaignDetails.Text = campaign.CampaignName;
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var characters = await App.MobileService.GetTable<Characters>()
+                .Where(cha => cha.UserId == App.user.Id).ToListAsync();
+            characterListView.ItemsSource = characters;
+
+        }
     }
 }

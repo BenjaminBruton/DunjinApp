@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:Dunjin.Model"
              x:Class="Dunjin.HomeDM"
              BarBackgroundColor="DarkRed"
              BarTextColor="Tan">
@@ -19,6 +20,25 @@
                    HorizontalTextAlignment="Center"
                    FontSize="Subtitle"
                    Margin="50,0,50,0"/>
+            <ListView x:Name="characterListView"
+                  ItemsSource="{Binding Characters}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <customControls:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="Center">                           
+                                    <Label Text="{Binding CharName}"
+                                       VerticalOptions="Center"
+                                       FontSize="Large"
+                                       TextColor="DarkRed"/>
+                                </StackLayout>
+
+                            </ViewCell.View>
+                        </customControls:ExtendedViewCell>
+                </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Player Rolls" BackgroundImageSource="parchment2.jpg">
