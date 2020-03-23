@@ -16,7 +16,7 @@
                 Margin="50,20,50,20"
                 BackgroundColor="DarkRed"
                 TextColor="Tan"
-                Clicked="newCampaign_Clicked"/>
+                Clicked="joinCampaign_Clicked"/>
         <ListView x:Name="characterListView"
                   ItemsSource="{Binding Characters}">
             <ListView.ItemTemplate>

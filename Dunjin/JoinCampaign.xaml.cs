@@ -50,7 +50,8 @@ namespace Dunjin
                         CharInt = 0,
                         CharWis = 0,
                         CharCha = 0,
-                        CharInit = 0
+                        CharInit = 0,
+                        CharRoll = 0
                     };
 
                      await App.MobileService.GetTable<Characters>().InsertAsync(character);

@@ -7,7 +7,6 @@ namespace Dunjin.Model
     {
         [PrimaryKey, AutoIncrement]
         public string Id { get; set; }
-
         public string CharName { get; set; }
         public string CharClass { get; set; }
         public string CharRace { get; set; }
@@ -20,6 +19,7 @@ namespace Dunjin.Model
         public int CharWis { get; set; }
         public int CharCha { get; set; }       
         public int CharInit { get; set; }
+        public int CharRoll { get; set; }
         public string UserId { get; set; }
         public string CampaignId { get; set; }
     }

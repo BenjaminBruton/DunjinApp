@@ -14,6 +14,9 @@ namespace Dunjin
 
             this.character = character;
             characterDetails.Text = character.CharName;
+            BindingContext = character;
         }
+
+
     }
 }
