@@ -10,7 +10,7 @@ namespace Dunjin.Model
         public string CharName { get; set; }
         public string CharClass { get; set; }
         public string CharRace { get; set; }
-        public int CharLevel { get; set; }
+        public int CharLevel { get ; set ; }
         public int CharXP { get; set; }
         public int CharStr { get; set; }
         public int CharDex { get; set; }
@@ -20,6 +20,9 @@ namespace Dunjin.Model
         public int CharCha { get; set; }       
         public int CharInit { get; set; }
         public int CharRoll { get; set; }
+        public int CharAC { get; set; }
+        public int CharHP { get; set; }
+        public int CharTempHP { get; set; }
         public string UserId { get; set; }
         public string CampaignId { get; set; }
     }
