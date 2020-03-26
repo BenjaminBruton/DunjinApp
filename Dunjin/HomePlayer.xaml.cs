@@ -15,6 +15,26 @@ namespace Dunjin
             this.character = character;
             characterDetails.Text = character.CharName;
             BindingContext = character;
+            CharacterMods();
+        }
+
+        
+        public void CharacterMods()
+        {
+            var strengthMod = Convert.ToInt32(decimal.Floor((character.CharStr - 10) / 2));
+            var dexterityMod = Convert.ToInt32(decimal.Floor((character.CharDex - 10) / 2));
+            var constitutionMod = Convert.ToInt32(decimal.Floor((character.CharCon - 10) / 2));           
+            var wisdomMod = Convert.ToInt32(decimal.Floor((character.CharWis - 10) / 2));
+            var intelligenceMod = Convert.ToInt32(decimal.Floor((character.CharInt - 10) / 2));
+            var charismaMod = Convert.ToInt32(decimal.Floor((character.CharCha - 10) / 2));
+
+
+            strMod.Text = strengthMod.ToString();
+            dexMod.Text = dexterityMod.ToString();
+            conMod.Text = constitutionMod.ToString();
+            wisMod.Text = wisdomMod.ToString();
+            intMod.Text = intelligenceMod.ToString();
+            chaMod.Text = charismaMod.ToString();
         }
 
         void updateButton_Clicked(System.Object sender, System.EventArgs e)
@@ -32,6 +52,20 @@ namespace Dunjin
                 confirmButton.IsVisible = false;
             }
         }
+
+        void OnTextChanged(object sender, EventArgs e)
+        {
+
+            SearchBar searchBar = (SearchBar)sender;
+            
+            searchResults.ItemsSource = Persistence.DataService.GetSearchResults(searchBar.Text);
+        }
+
+        void addItemButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+
+        }
+
 
         private async void confirmButton_Clicked(System.Object sender, System.EventArgs e)
         {
@@ -111,6 +145,7 @@ namespace Dunjin
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
 
             await DisplayAlert("Success", "Character Stats Updated", "Ok");
+            await Navigation.PushAsync(new HomePlayer(character));
         }
     }
 }

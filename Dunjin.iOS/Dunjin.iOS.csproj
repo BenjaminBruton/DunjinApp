@@ -131,6 +131,9 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
       <Version>4.1.2</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -142,5 +145,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\parchment2.jpg" />
     <BundleResource Include="Resources\dunjin1.png" />
+    <BundleResource Include="Resources\dunjin500_1.png" />
+    <BundleResource Include="Resources\dunjin500_2.png" />
   </ItemGroup>
 </Project>
