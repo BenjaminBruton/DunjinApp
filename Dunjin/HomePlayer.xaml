@@ -9,14 +9,15 @@
     <ContentPage Title="Character"
                  BackgroundImageSource="parchment2.jpg"
                  >
-        <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
             <Entry x:Name="characterDetails"
                    TextColor="DarkRed"
                    VerticalOptions="Start"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"
                    FontSize="Large"
-                   Margin="50,0,50,0"/>
+                   Margin="50,5,50,5"/>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="CenterAndExpand">
                 <Label Text="Level:"
@@ -33,12 +34,12 @@
                        VerticalTextAlignment="End"/>
                 <Entry Text="{Binding CharClass}"
                        x:Name="charClass"
-                       FontSize="Medium"
+                       FontSize="Large"
                        TextColor="DarkRed"
                        VerticalTextAlignment="Center"/>
                 <Entry Text="{Binding CharRace}"
                        x:Name="charRace"
-                       FontSize="Medium"
+                       FontSize="Large"
                        TextColor="DarkRed"
                        VerticalTextAlignment="Center"/>
             </StackLayout>
@@ -234,14 +235,17 @@
                        VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="CenterAndExpand">
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="50,0,50,0">
                 <Button Text="Update"
                         x:Name="updateButton"
+                        FontSize="Large"
                         BackgroundColor="DarkRed"
                         TextColor="Tan"
                         Clicked="updateButton_Clicked"/>
                 <Button Text="Cancel"
                         x:Name="cancelButton"
+                        FontSize="Large"
                         BackgroundColor="DarkRed"
                         TextColor="Tan"
                         Clicked="cancelButton_Clicked"/>
@@ -250,6 +254,7 @@
                          HorizontalOptions="Center">
                 <Button Text="Confirm"
                         x:Name="confirmButton"
+                        FontSize="Large"
                         BackgroundColor="DarkRed"
                         TextColor="Tan"
                         Clicked="confirmButton_Clicked"
@@ -257,20 +262,20 @@
             </StackLayout>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Items" BackgroundImageSource="parchment2.jpg">
+    <ContentPage Title="Item Search" BackgroundImageSource="parchment2.jpg">
         <StackLayout>
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="CenterAndExpand"
-                         VerticalOptions="Start"
+            <StackLayout HorizontalOptions="CenterAndExpand"
                          Margin="50,5,50,5">
                 <SearchBar Placeholder="Start typing item name..."
                            x:Name="searchBar"
                            TextColor="DarkRed"
+                           HorizontalOptions="CenterAndExpand"
                            TextChanged="OnTextChanged"/>
-                <Button Text="Add"
+                <Button Text="Add Item"
                         x:Name="addItemButton"
                         BackgroundColor="DarkRed"
                         TextColor="Tan"
+                        HorizontalOptions="CenterAndExpand"
                         Clicked="addItemButton_Clicked"/>
             </StackLayout>
             <StackLayout>
@@ -279,10 +284,10 @@
             </StackLayout>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Dice" BackgroundImageSource="parchment2.jpg">
+    <ContentPage Title="Items" BackgroundImageSource="parchment2.jpg">
 
     </ContentPage>
-    <ContentPage Title="Contact" BackgroundImageSource="parchment2.jpg">
+    <ContentPage Title="Rolls" BackgroundImageSource="parchment2.jpg">
 
     </ContentPage>
 </TabbedPage>
