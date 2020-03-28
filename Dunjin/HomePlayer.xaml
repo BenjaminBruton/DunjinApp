@@ -262,30 +262,109 @@
             </StackLayout>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Item Search" BackgroundImageSource="parchment2.jpg">
+    <ContentPage Title="Items" BackgroundImageSource="parchment2.jpg">
         <StackLayout>
-            <StackLayout HorizontalOptions="CenterAndExpand"
-                         Margin="50,5,50,5">
+            <StackLayout Margin="50,20,50,5">
                 <SearchBar Placeholder="Start typing item name..."
                            x:Name="searchBar"
                            TextColor="DarkRed"
                            HorizontalOptions="CenterAndExpand"
                            TextChanged="OnTextChanged"/>
-                <Button Text="Add Item"
-                        x:Name="addItemButton"
-                        BackgroundColor="DarkRed"
-                        TextColor="Tan"
-                        HorizontalOptions="CenterAndExpand"
-                        Clicked="addItemButton_Clicked"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="  Add Weap 1  "
+                            x:Name="addWeap1Button"
+                            BackgroundColor="DarkRed"
+                            TextColor="Tan"
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="addWeap1Button_Clicked"/>
+                    <Button Text="  Add Weap 2  "
+                            x:Name="aaddWeap2Button"
+                            BackgroundColor="DarkRed"
+                            TextColor="Tan"
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="aaddWeap2Button_Clicked"/>
+                </StackLayout>
             </StackLayout>
             <StackLayout>
                 <ListView x:Name="searchResults"
-                          IsEnabled="True"/>
+                          IsEnabled="True"
+                          HeightRequest="220"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="5,20,5,0">
+                <Entry x:Name="weapon1"
+                       Placeholder="  Weapon 1  "
+                       TextColor="DarkRed"
+                       FontSize="Medium"/>
+                <StackLayout>
+                    <Label Text="AtkBon:"
+                           TextColor="DarkRed"
+                           FontSize="Medium"/>
+                    <Entry x:Name="w1attackBonus"
+                           TextColor="DarkRed"
+                           FontSize="Medium"
+                           WidthRequest="50"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Dmg:"
+                           TextColor="DarkRed"
+                           FontSize="Medium"/>
+                    <Entry x:Name="w1dmg"
+                           TextColor="DarkRed"
+                           FontSize="Medium"
+                           WidthRequest="50"/>
+                </StackLayout>
+                <Button x:Name="deleteWeap1"
+                        Text=" Delete "
+                        TextColor="Tan"
+                        BackgroundColor="DarkRed"
+                        HeightRequest="40"/>
+                <Button x:Name="confirmDelete1"
+                        Text=" Confirm "
+                        TextColor="Tan"
+                        BackgroundColor="DarkRed"
+                        HeightRequest="40"
+                        IsVisible="false"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="5,20,5,20">
+                <Entry x:Name="weapon2"
+                       Placeholder="  Weapon 2  "
+                       TextColor="DarkRed"
+                       FontSize="Large"/>
+                <StackLayout>
+                    <Label Text="AtkBon:"
+                           TextColor="DarkRed"
+                           FontSize="Medium"/>
+                    <Entry x:Name="w2attackBonus"
+                           TextColor="DarkRed"
+                           FontSize="Large"
+                           WidthRequest="50"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Dmg:"
+                           TextColor="DarkRed"
+                           FontSize="Medium"/>
+                    <Entry x:Name="w2dmgType"
+                           TextColor="DarkRed"
+                           FontSize="Large"
+                           WidthRequest="50"/>
+                 </StackLayout>
+                <Button x:Name="deleteWeap2"
+                        Text=" Delete "
+                        TextColor="Tan"
+                        BackgroundColor="DarkRed"
+                        HeightRequest="40"/>
+                <Button x:Name="confirmDelete2"
+                        Text="Confirm"
+                        TextColor="Tan"
+                        BackgroundColor="DarkRed"
+                        HeightRequest="40"
+                        IsVisible="false"/>
             </StackLayout>
         </StackLayout>
-    </ContentPage>
-    <ContentPage Title="Items" BackgroundImageSource="parchment2.jpg">
-
     </ContentPage>
     <ContentPage Title="Rolls" BackgroundImageSource="parchment2.jpg">
 

@@ -18,7 +18,8 @@ namespace Dunjin
             CharacterMods();
         }
 
-        
+
+        //Calculates ability modifiers based on ability scores
         public void CharacterMods()
         {
             var strengthMod = Convert.ToInt32(decimal.Floor((character.CharStr - 10) / 2));
@@ -53,6 +54,7 @@ namespace Dunjin
             }
         }
 
+        //Pulls results from pre-made list
         void OnTextChanged(object sender, EventArgs e)
         {
 
@@ -61,12 +63,17 @@ namespace Dunjin
             searchResults.ItemsSource = Persistence.DataService.GetSearchResults(searchBar.Text);
         }
 
-        void addItemButton_Clicked(System.Object sender, System.EventArgs e)
-        {
 
+        void addWeap1Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+
+        void aaddWeap2Button_Clicked(System.Object sender, System.EventArgs e)
+        {
         }
 
 
+        //Updates DB with character info
         private async void confirmButton_Clicked(System.Object sender, System.EventArgs e)
         {
             if (charLevel.Text == null)
@@ -147,5 +154,7 @@ namespace Dunjin
             await DisplayAlert("Success", "Character Stats Updated", "Ok");
             await Navigation.PushAsync(new HomePlayer(character));
         }
+
+
     }
 }
