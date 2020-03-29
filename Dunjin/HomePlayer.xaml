@@ -237,13 +237,13 @@
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="CenterAndExpand"
                          Margin="50,0,50,0">
-                <Button Text="Update"
+                <Button Text="  Update  "
                         x:Name="updateButton"
                         FontSize="Large"
                         BackgroundColor="DarkRed"
                         TextColor="Tan"
                         Clicked="updateButton_Clicked"/>
-                <Button Text="Cancel"
+                <Button Text="  Cancel  "
                         x:Name="cancelButton"
                         FontSize="Large"
                         BackgroundColor="DarkRed"
@@ -252,7 +252,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
-                <Button Text="Confirm"
+                <Button Text="  Confirm  "
                         x:Name="confirmButton"
                         FontSize="Large"
                         BackgroundColor="DarkRed"
@@ -296,14 +296,14 @@
                 <Entry x:Name="weapon1"
                        Placeholder="  Weapon 1  "
                        TextColor="DarkRed"
-                       FontSize="Medium"/>
+                       FontSize="Large"/>
                 <StackLayout>
                     <Label Text="AtkBon:"
                            TextColor="DarkRed"
                            FontSize="Medium"/>
                     <Entry x:Name="w1attackBonus"
                            TextColor="DarkRed"
-                           FontSize="Medium"
+                           FontSize="Large"
                            WidthRequest="50"/>
                 </StackLayout>
                 <StackLayout>
@@ -312,7 +312,7 @@
                            FontSize="Medium"/>
                     <Entry x:Name="w1dmg"
                            TextColor="DarkRed"
-                           FontSize="Medium"
+                           FontSize="Large"
                            WidthRequest="50"/>
                 </StackLayout>
                 <Button x:Name="deleteWeap1"
@@ -367,6 +367,156 @@
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Rolls" BackgroundImageSource="parchment2.jpg">
-
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Button x:Name="initRoll"
+                    Text="  Initiative  "
+                    FontSize="Large"
+                    BackgroundColor="DarkRed"
+                    TextColor="Tan"
+                    Margin="20,10,20,5"/>
+            <StackLayout Orientation="Horizontal"
+                         Margin="5,0,5,5">
+                <Button x:Name="attackRoll"
+                        Text=" Attack "
+                        FontSize="Large"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+                <Button x:Name="dmgRoll"
+                        Text=" Damage "
+                        FontSize="Large"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Dex Based?"
+                           TextColor="DarkRed"/>
+                    <Switch x:Name="dexSwitch"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Margin="5,0,5,5"
+                         HorizontalOptions="CenterAndExpand">
+                <Button x:Name="strRoll"
+                        Text=" Str "
+                        FontSize="Medium"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+                <Button x:Name="dexRoll"
+                        Text=" Dex "
+                        FontSize="Medium"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+                <Button x:Name="conRoll"
+                        Text=" Con "
+                        FontSize="Medium"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Margin="5,0,5,5"
+                         HorizontalOptions="CenterAndExpand">
+                <Button x:Name="intRoll"
+                        Text=" Int "
+                        FontSize="Medium"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+                <Button x:Name="wisRoll"
+                        Text=" Wis "
+                        FontSize="Medium"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+                <Button x:Name="chaRoll"
+                        Text=" Cha "
+                        FontSize="Medium"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+            </StackLayout>
+            <Entry x:Name="rollOutput"
+                   TextColor="DarkRed"
+                   IsReadOnly="True"
+                   WidthRequest="50"
+                   Margin="5,0,5,5"/>
+            <Label Text="Manual Rolls"
+                   Margin="5,0,5,5"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Large"
+                   TextColor="DarkRed"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="d2  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d2Multiple"
+                       WidthRequest="50"
+                       Margin="0,0,5,0"/>
+                <Label Text="d3  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d3Multiple"
+                       WidthRequest="50"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="d4  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d4Multiple"
+                       WidthRequest="50"
+                       Margin="0,0,5,0"/>
+                <Label Text="d6  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d6Multiple"
+                       WidthRequest="50"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="d8  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d8Multiple"
+                       WidthRequest="50"
+                       Margin="0,0,5,0"/>
+                <Label Text="d10  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d10Multiple"
+                       WidthRequest="50"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="d12  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d12Multiple"
+                       WidthRequest="50"
+                       Margin="0,0,5,0"/>
+                <Label Text="d20  x"
+                       FontSize="Large"
+                       TextColor="DarkRed"
+                       Margin="0,0,5,0"/>
+                <Entry x:Name="d20Multiple"
+                       WidthRequest="50"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="5,0,5,5">
+                <Label Text="Mods:"
+                       FontSize="Large"
+                       TextColor="DarkRed"/>
+                <Entry x:Name="modsEntry"
+                       WidthRequest="50"/>
+                <Button x:Name="manualRoll"
+                        Text="  Roll  "
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"/>
+            </StackLayout>
+        </StackLayout>
     </ContentPage>
 </TabbedPage>
