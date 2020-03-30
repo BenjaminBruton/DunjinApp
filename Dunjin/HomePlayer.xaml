@@ -262,10 +262,10 @@
             </StackLayout>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Items" BackgroundImageSource="parchment2.jpg">
+    <ContentPage Title="Weapons" BackgroundImageSource="parchment2.jpg">
         <StackLayout>
             <StackLayout Margin="50,20,50,5">
-                <SearchBar Placeholder="Start typing item name..."
+                <SearchBar Placeholder="Start typing weapon name..."
                            x:Name="searchBar"
                            TextColor="DarkRed"
                            HorizontalOptions="CenterAndExpand"
@@ -278,11 +278,11 @@
                             HorizontalOptions="CenterAndExpand"
                             Clicked="addWeap1Button_Clicked"/>
                     <Button Text="  Add Weap 2  "
-                            x:Name="aaddWeap2Button"
+                            x:Name="addWeap2Button"
                             BackgroundColor="DarkRed"
                             TextColor="Tan"
                             HorizontalOptions="CenterAndExpand"
-                            Clicked="aaddWeap2Button_Clicked"/>
+                            Clicked="addWeap2Button_Clicked"/>
                 </StackLayout>
             </StackLayout>
             <StackLayout>
@@ -294,7 +294,7 @@
                          HorizontalOptions="CenterAndExpand"
                          Margin="5,20,5,0">
                 <Entry x:Name="weapon1"
-                       Placeholder="  Weapon 1  "
+                       Text="{Binding CharWeap1}"
                        TextColor="DarkRed"
                        FontSize="Large"/>
                 <StackLayout>
@@ -311,6 +311,7 @@
                            TextColor="DarkRed"
                            FontSize="Medium"/>
                     <Entry x:Name="w1dmg"
+                           Text="{Binding CharWeap1Dmg}"
                            TextColor="DarkRed"
                            FontSize="Large"
                            WidthRequest="50"/>
@@ -331,7 +332,7 @@
                          HorizontalOptions="CenterAndExpand"
                          Margin="5,20,5,20">
                 <Entry x:Name="weapon2"
-                       Placeholder="  Weapon 2  "
+                       Text="{Binding CharWeap2}"
                        TextColor="DarkRed"
                        FontSize="Large"/>
                 <StackLayout>
@@ -347,7 +348,8 @@
                     <Label Text="Dmg:"
                            TextColor="DarkRed"
                            FontSize="Medium"/>
-                    <Entry x:Name="w2dmgType"
+                    <Entry x:Name="w2dmg"
+                           Text="{Binding CharWeap2Dmg}"
                            TextColor="DarkRed"
                            FontSize="Large"
                            WidthRequest="50"/>
@@ -363,6 +365,13 @@
                         BackgroundColor="DarkRed"
                         HeightRequest="40"
                         IsVisible="false"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Button x:Name="saveWeaps"
+                        Text="Save"
+                        BackgroundColor="DarkRed"
+                        TextColor="Tan"
+                        Clicked="saveWeaps_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage>

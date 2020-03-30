@@ -25,5 +25,9 @@ namespace Dunjin.Model
         public int CharTempHP { get; set; }
         public string UserId { get; set; }
         public string CampaignId { get; set; }
+        public string CharWeap1 { get; set; }
+        public string CharWeap1Dmg { get; set; }
+        public string CharWeap2 { get; set; }
+        public string CharWeap2Dmg { get; set; }
     }
 }

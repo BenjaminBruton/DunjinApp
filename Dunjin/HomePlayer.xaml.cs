@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using Dunjin.Model;
+using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
 namespace Dunjin
@@ -8,6 +10,11 @@ namespace Dunjin
     public partial class HomePlayer : TabbedPage
     {
         Characters character;
+        Weapons weapons;
+
+        private string _weaponName;
+        private string _weaponDmg;
+
         public HomePlayer(Characters character)
         {
             InitializeComponent();
@@ -18,6 +25,23 @@ namespace Dunjin
             CharacterMods();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+
+            if (weapon1.Text == null && weapon2.Text == null)
+            {
+
+                character.CharWeap1 = "add weap";
+                character.CharWeap2 = "add weap";
+                character.CharWeap1Dmg = "0d0";
+                character.CharWeap2Dmg = "0d0";
+
+                await App.MobileService.GetTable<Characters>().UpdateAsync(character);
+            }
+
+        }
 
         //Calculates ability modifiers based on ability scores
         public void CharacterMods()
@@ -64,14 +88,75 @@ namespace Dunjin
         }
 
 
-        void addWeap1Button_Clicked(System.Object sender, System.EventArgs e)
+        public async void addWeap1Button_Clicked(System.Object sender, System.EventArgs e)
         {
+            string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
+            var handler = new HttpClientHandler();
+            HttpClient client = new HttpClient(handler);
+            string result = await client.GetStringAsync(url);
+
+            var resultObject = JObject.Parse(result);
+            string weaponName = resultObject["name"].ToString();
+            string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
+
+            weapon1.Text = weaponName;
+            w1dmg.Text = weaponDmg;
         }
 
-        void aaddWeap2Button_Clicked(System.Object sender, System.EventArgs e)
+        public async void addWeap2Button_Clicked(System.Object sender, System.EventArgs e)
         {
+            string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
+            var handler = new HttpClientHandler();
+            HttpClient client = new HttpClient(handler);
+            string result = await client.GetStringAsync(url);
+
+            var resultObject = JObject.Parse(result);
+            string weaponName = resultObject["name"].ToString();
+            string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
+
+            weapon2.Text = weaponName;
+            w2dmg.Text = weaponDmg;
         }
 
+        public async void saveWeaps_Clicked(System.Object sender, System.EventArgs e)
+        {
+            /*weapons.WeaponName = weapon1.Text;
+            weapons.WeaponDamage = w1dmg.Text;
+            weapons.WeaponName2 = weapon2.Text;
+            weapons.WeaponDamage2 = w2dmg.Text;
+            weapons.UserId = App.user.Id;
+            weapons.CharacterId = App.character.Id;
+            weapons.CampaignId = App.campaign.Id;
+
+            await App.MobileService.GetTable<Weapons>().UpdateAsync(weapons);*/
+
+            character.CharWeap1 = weapon1.Text;
+            character.CharWeap1Dmg = w1dmg.Text;
+            character.CharWeap2 = weapon2.Text;
+            character.CharWeap2Dmg = w2dmg.Text;
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
+
+            await DisplayAlert("Success", "Weapons Updated", "Ok");
+            await Navigation.PushAsync(new HomePlayer(character));
+        }
+
+
+
+        public async void DD_API()
+        {
+            string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
+            var handler = new HttpClientHandler();
+            HttpClient client = new HttpClient(handler);
+            string result = await client.GetStringAsync(url);
+
+            var resultObject = JObject.Parse(result);
+            string weaponName = resultObject["name"].ToString();
+            string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
+
+            _weaponName = weaponName;
+            _weaponDmg = weaponDmg;
+         }
 
         //Updates DB with character info
         private async void confirmButton_Clicked(System.Object sender, System.EventArgs e)
