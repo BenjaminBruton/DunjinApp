@@ -7,8 +7,10 @@ namespace Dunjin.Model
     {
         [PrimaryKey, AutoIncrement]
         public string Id { get; set; }
+        public int RollNum { get; set; }
         public string CharacterId { get; set; }
         public string UserId { get; set; }
         public string CampaignId { get; set; }
+        public string RollType { get; set; }
     }
 }

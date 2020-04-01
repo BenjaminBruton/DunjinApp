@@ -9,7 +9,6 @@ namespace Dunjin
 {
     public partial class CampaignSelection : ContentPage
     {
-        Characters characters;
         public CampaignSelection()
         {
             InitializeComponent();

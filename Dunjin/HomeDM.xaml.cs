@@ -14,7 +14,6 @@ namespace Dunjin
     public partial class HomeDM : TabbedPage
     {
         Campaigns campaign;
-        Characters characters;
 
         public HomeDM(Campaigns campaign)
         {
