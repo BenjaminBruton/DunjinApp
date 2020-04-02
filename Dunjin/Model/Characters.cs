@@ -20,7 +20,9 @@ namespace Dunjin.Model
         public int CharCha { get; set; }       
         public int CharInit { get; set; }
         public int CharRoll { get; set; }
+        public int CharInitiativeRoll { get; set; }
         public string CharRollType { get; set; }
+        public string CharCritHit { get; set; }
         public int CharAC { get; set; }
         public int CharHP { get; set; }
         public int CharTempHP { get; set; }

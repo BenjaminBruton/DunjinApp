@@ -12,5 +12,6 @@ namespace Dunjin.Model
         public string UserId { get; set; }
         public string CampaignId { get; set; }
         public string RollType { get; set; }
+        public string CritHit { get; set; }
     }
 }

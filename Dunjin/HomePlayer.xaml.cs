@@ -13,6 +13,8 @@ namespace Dunjin
 
         private string _weaponName;
         private string _weaponDmg;
+        private string criticalRoll;
+        private int d20CritChance;
 
         public HomePlayer(Characters character)
         {
@@ -251,6 +253,7 @@ namespace Dunjin
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Initiative";
+            character.CharInitiativeRoll = Convert.ToInt32(rollOutput.Text);
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -280,19 +283,32 @@ namespace Dunjin
                 rollOutput.Text = strAttRoll.ToString();
             }
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Attack1",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Attack1";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -365,19 +381,32 @@ namespace Dunjin
                 rollOutput.Text = strAttRoll.ToString();
             }
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Attack2",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Attack2";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -431,19 +460,32 @@ namespace Dunjin
             int strengthRoll = randomRoll + randomStrMod;
             rollOutput.Text = strengthRoll.ToString();
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Strength",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Strength";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -455,19 +497,32 @@ namespace Dunjin
             int dexterityRoll = randomRoll + randomDexMod;
             rollOutput.Text = dexterityRoll.ToString();
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Dexterity",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Dexterity";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -479,19 +534,32 @@ namespace Dunjin
             int constitutionRoll = randomRoll + randomConMod;
             rollOutput.Text = constitutionRoll.ToString();
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Constitution",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Constitution";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -503,19 +571,32 @@ namespace Dunjin
             int intelligenceRoll = randomRoll + randomIntMod;
             rollOutput.Text = intelligenceRoll.ToString();
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Intelligence",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Intelligence";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -527,19 +608,32 @@ namespace Dunjin
             int wisdomRoll = randomRoll + randomWisMod;
             rollOutput.Text = wisdomRoll.ToString();
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Wisdom",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Wisdom";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -551,19 +645,32 @@ namespace Dunjin
             int charismaRoll = randomRoll + randomChaMod;
             rollOutput.Text = charismaRoll.ToString();
 
+            if (randomRoll == 20)
+            {
+                criticalRoll = "HIT";
+                await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+            }
+            if (randomRoll == 1)
+            {
+                criticalRoll = "MISS";
+                await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+            }
+
             Rolls roll = new Rolls()
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Charisma",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Charisma";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
@@ -607,16 +714,7 @@ namespace Dunjin
             {
                 modsEntry.Text = 0.ToString();
             }
-            /*
-            int d2 = (rand.Next(1, 3));
-            int d3 = (rand.Next(1, 4));
-            int d4 = (rand.Next(1, 5));
-            int d6 = (rand.Next(1, 7));
-            int d8 = (rand.Next(1, 9));
-            int d10 = (rand.Next(1, 11));
-            int d12 = (rand.Next(1, 13));
-            int d20 = (rand.Next(1, 21));
-            */
+           
             int d2m = Convert.ToInt32(d2Multiple.Text);
             int d3m = Convert.ToInt32(d3Multiple.Text);
             int d4m = Convert.ToInt32(d4Multiple.Text);
@@ -673,7 +771,18 @@ namespace Dunjin
 
             for (int i = d20m; i > 0; i--)
             {
-                d20wX += (rand.Next(1, 21));
+                d20CritChance = rand.Next(1, 21);
+                d20wX += d20CritChance;
+                if (d20CritChance == 20)
+                {
+                    criticalRoll = "HIT";
+                    await DisplayAlert("CRIT", "YOU MADE A CRITICAL HIT", "OK");
+                }
+                if (d20CritChance == 1)
+                {
+                    criticalRoll = "MISS";
+                    await DisplayAlert("MISS", "YOU MADE A CRITICAL MISS", "OK");
+                }
             }
 
 
@@ -687,13 +796,15 @@ namespace Dunjin
                 RollType = "Custom",
                 CharacterId = App.character.Id,
                 CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                UserId = App.character.UserId,
+                CritHit = criticalRoll
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
 
             character.CharRoll = Convert.ToInt32(rollOutput.Text);
             character.CharRollType = "Custom";
+            character.CharCritHit = criticalRoll;
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }

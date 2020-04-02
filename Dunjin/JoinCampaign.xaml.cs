@@ -39,22 +39,22 @@ namespace Dunjin
                     {
                         UserId = App.user.Id.ToString(),
                         CampaignId = App.campaign.Id.ToString(),
-                        CharName = "Change This",
-                        CharClass = "Change This",
-                        CharRace = "Change This",
-                        CharLevel = 0,
-                        CharXP = 0,
-                        CharStr = 0,
-                        CharDex = 0,
-                        CharCon = 0,
-                        CharInt = 0,
-                        CharWis = 0,
-                        CharCha = 0,
+                        CharName = "Name Here",
+                        CharClass = "Type Class",
+                        CharRace = "Type Race",
+                        CharLevel = 10,
+                        CharXP = 10,
+                        CharStr = 10,
+                        CharDex = 10,
+                        CharCon = 10,
+                        CharInt = 10,
+                        CharWis = 10,
+                        CharCha = 10,
                         CharInit = 0,
                         CharRoll = 0,
-                        CharAC = 0,
-                        CharHP = 0,
-                        CharTempHP = 0
+                        CharAC = 10,
+                        CharHP = 10,
+                        CharTempHP = 10
                     };
 
                      await App.MobileService.GetTable<Characters>().InsertAsync(character);
@@ -62,7 +62,7 @@ namespace Dunjin
                      await DisplayAlert("Success", "Campaign Successfully Joined", "Ok");
 
                      await Navigation.PushAsync(new CharacterSelection());
-                        }
+                     }
                      else
                      {
                          await DisplayAlert("Error", "There was an Error Joining Campaign", "Ok");
