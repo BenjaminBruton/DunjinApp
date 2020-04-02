@@ -254,7 +254,7 @@ namespace Dunjin
 
             await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void attackRoll1_Clicked(System.Object sender, System.EventArgs e)
+        async void attackRoll1_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
@@ -279,8 +279,24 @@ namespace Dunjin
             {
                 rollOutput.Text = strAttRoll.ToString();
             }
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Attack1",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Attack1";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void dmgRoll1_Clicked(System.Object sender, System.EventArgs e)
+        async void dmgRoll1_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             string dice = w1dmg.Text;
@@ -306,8 +322,24 @@ namespace Dunjin
                 rollOutput.Text = strDmgRoll.ToString();
             }
 
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Damage1",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Damage1";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
+
         }
-        void attackRoll2_Clicked(System.Object sender, System.EventArgs e)
+        async void attackRoll2_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
@@ -332,8 +364,24 @@ namespace Dunjin
             {
                 rollOutput.Text = strAttRoll.ToString();
             }
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Attack2",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Attack2";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void dmgRoll2_Clicked(System.Object sender, System.EventArgs e)
+        async void dmgRoll2_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             string dice = w2dmg.Text;
@@ -358,56 +406,168 @@ namespace Dunjin
             {
                 rollOutput.Text = strDmgRoll.ToString();
             }
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Damage2",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Damage2";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void strRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void strRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
             int randomStrMod = Convert.ToInt32(strMod.Text);
             int strengthRoll = randomRoll + randomStrMod;
             rollOutput.Text = strengthRoll.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Strength",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Strength";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void dexRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void dexRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
             int randomDexMod = Convert.ToInt32(dexMod.Text);
             int dexterityRoll = randomRoll + randomDexMod;
             rollOutput.Text = dexterityRoll.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Dexterity",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Dexterity";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void conRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void conRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
             int randomConMod = Convert.ToInt32(conMod.Text);
             int constitutionRoll = randomRoll + randomConMod;
             rollOutput.Text = constitutionRoll.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Constitution",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Constitution";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void intRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void intRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
             int randomIntMod = Convert.ToInt32(intMod.Text);
             int intelligenceRoll = randomRoll + randomIntMod;
             rollOutput.Text = intelligenceRoll.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Intelligence",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Intelligence";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void wisRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void wisRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
             int randomWisMod = Convert.ToInt32(wisMod.Text);
             int wisdomRoll = randomRoll + randomWisMod;
             rollOutput.Text = wisdomRoll.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Wisdom",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Wisdom";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void chaRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void chaRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
             int randomRoll = rand.Next(1, 21);
             int randomChaMod = Convert.ToInt32(chaMod.Text);
             int charismaRoll = randomRoll + randomChaMod;
             rollOutput.Text = charismaRoll.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Charisma",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Charisma";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
-        void manualRoll_Clicked(System.Object sender, System.EventArgs e)
+        async void manualRoll_Clicked(System.Object sender, System.EventArgs e)
         {
             Random rand = new Random();
 
@@ -447,7 +607,7 @@ namespace Dunjin
             {
                 modsEntry.Text = 0.ToString();
             }
-
+            /*
             int d2 = (rand.Next(1, 3));
             int d3 = (rand.Next(1, 4));
             int d4 = (rand.Next(1, 5));
@@ -456,19 +616,86 @@ namespace Dunjin
             int d10 = (rand.Next(1, 11));
             int d12 = (rand.Next(1, 13));
             int d20 = (rand.Next(1, 21));
+            */
+            int d2m = Convert.ToInt32(d2Multiple.Text);
+            int d3m = Convert.ToInt32(d3Multiple.Text);
+            int d4m = Convert.ToInt32(d4Multiple.Text);
+            int d6m = Convert.ToInt32(d6Multiple.Text);
+            int d8m = Convert.ToInt32(d8Multiple.Text);
+            int d10m = Convert.ToInt32(d10Multiple.Text);
+            int d12m = Convert.ToInt32(d12Multiple.Text);
+            int d20m = Convert.ToInt32(d20Multiple.Text);
 
-            int d2wX = d2 * Convert.ToInt32(d2Multiple.Text);
-            int d3wX = d3 * Convert.ToInt32(d3Multiple.Text);
-            int d4wX = d4 * Convert.ToInt32(d4Multiple.Text);
-            int d6wX = d6 * Convert.ToInt32(d6Multiple.Text);
-            int d8wX = d8 * Convert.ToInt32(d8Multiple.Text);
-            int d10wX = d10 * Convert.ToInt32(d10Multiple.Text);
-            int d12wX = d12 * Convert.ToInt32(d12Multiple.Text);
-            int d20wX = d20 * Convert.ToInt32(d20Multiple.Text);
+            int d2wX = 0;
+            int d3wX = 0;
+            int d4wX = 0;
+            int d6wX = 0;
+            int d8wX = 0;
+            int d10wX = 0;
+            int d12wX = 0;
+            int d20wX = 0;
+
+
+            for (int i = d2m; i > 0; i--)
+            {
+                d2wX += (rand.Next(1, 3));
+            }
+
+            for (int i = d3m; i > 0; i--)
+            {
+                d3wX += (rand.Next(1, 4));
+            }
+
+            for (int i = d4m; i > 0; i--)
+            {
+                d4wX += (rand.Next(1, 5));
+            }
+
+            for (int i = d6m; i > 0; i--)
+            {
+                d6wX += (rand.Next(1, 7));
+            }
+
+            for (int i = d8m; i > 0; i--)
+            {
+                d8wX += (rand.Next(1, 9));
+            }
+
+            for (int i = d10m; i > 0; i--)
+            {
+                d10wX += (rand.Next(1, 11));
+            }
+
+            for (int i = d12m; i > 0; i--)
+            {
+                d12wX += (rand.Next(1, 13));
+            }
+
+            for (int i = d20m; i > 0; i--)
+            {
+                d20wX += (rand.Next(1, 21));
+            }
+
 
             int finalTally = d2wX + d3wX + d4wX + d6wX + d8wX + d10wX + d12wX + d20wX + Convert.ToInt32(modsEntry.Text);
 
             rollOutput.Text = finalTally.ToString();
+
+            Rolls roll = new Rolls()
+            {
+                RollNum = Convert.ToInt32(rollOutput.Text),
+                RollType = "Custom",
+                CharacterId = App.character.Id,
+                CampaignId = App.character.CampaignId,
+                UserId = App.character.UserId
+            };
+
+            await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
+
+            character.CharRoll = Convert.ToInt32(rollOutput.Text);
+            character.CharRollType = "Custom";
+
+            await App.MobileService.GetTable<Characters>().UpdateAsync(character);
         }
     }
 }
