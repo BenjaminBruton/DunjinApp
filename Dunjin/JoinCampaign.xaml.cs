@@ -42,7 +42,7 @@ namespace Dunjin
                         CharName = "Name Here",
                         CharClass = "Type Class",
                         CharRace = "Type Race",
-                        CharLevel = 10,
+                        CharLevel = 1,
                         CharXP = 10,
                         CharStr = 10,
                         CharDex = 10,

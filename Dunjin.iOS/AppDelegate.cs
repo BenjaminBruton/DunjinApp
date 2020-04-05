@@ -26,7 +26,6 @@ namespace Dunjin.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
-
             CurrentPlatform.Init();
 
             LoadApplication(new App());

@@ -13,24 +13,29 @@
                    FontSize="Title"
                    HorizontalOptions="Center"
                    Margin="0,0,0,50"/>
-            <Button Text="Highest Initiative Roll"
-                    BackgroundColor="DarkRed"
-                    TextColor="Tan"/>
-            <Button Text="Highest Overall Roll"
+            <Button Text="High Rolls All Time"
                     BackgroundColor="DarkRed"
                     TextColor="Tan"
-                    Margin="0,15,0,15"/>
-            <Button Text="Highest Weapon Damage Roll"
+                    Margin="0,15,0,15"
+                    x:Name="highRolls"
+                    Clicked="highRolls_Clicked"/>
+            <Button Text="High Rolls Today"
                     BackgroundColor="DarkRed"
                     TextColor="Tan"
-                    Margin="0,0,0,15"/>
-            <Button Text="Most Overall Weapon Damage"
+                    Margin="0,0,0,15"
+                    x:Name="highRollsToday"
+                    Clicked="highRollsToday_Clicked"/>
+            <Button Text="Damage Rolls"
                     BackgroundColor="DarkRed"
                     TextColor="Tan"
-                    Margin="0,0,0,15"/>
-            <Button Text="Most Rolls"
+                    Margin="0,0,0,15"
+                    x:Name="dmgRolls"
+                    Clicked="dmgRolls_Clicked"/>            
+            <Button Text="Character Stats"
                     BackgroundColor="DarkRed"
-                    TextColor="Tan"/>
+                    TextColor="Tan"
+                    x:Name="charStats"
+                    Clicked="charStats_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

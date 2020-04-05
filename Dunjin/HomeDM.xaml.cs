@@ -38,8 +38,8 @@ namespace Dunjin
             charactersListView.ItemsSource = characters;
             characterRollsListView.ItemsSource = characters;
             characterInitRollsListView.ItemsSource = characters;
-
         }
+
         private void CharacterClicked(object sender, ItemTappedEventArgs e)
         {
             Characters character = (Characters)e.Item;
@@ -208,7 +208,7 @@ namespace Dunjin
 
         async void charReports_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new ReportsMaster());
+            await Navigation.PushAsync(new ReportsMaster(campaign));
         }
     }
 }

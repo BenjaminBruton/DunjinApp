@@ -11,8 +11,6 @@ namespace Dunjin
     {
         Characters character;
 
-        private string _weaponName;
-        private string _weaponDmg;
         private string criticalRoll;
         private int d20CritChance;
 
@@ -88,7 +86,7 @@ namespace Dunjin
             searchResults.ItemsSource = Persistence.DataService.GetSearchResults(searchBar.Text);
         }
 
-
+        //Used to pull in API data from D&D 6.0 API - weapons 1 stats
         public async void addWeap1Button_Clicked(System.Object sender, System.EventArgs e)
         {
             string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
@@ -103,7 +101,7 @@ namespace Dunjin
             weapon1.Text = weaponName;
             w1dmg.Text = weaponDmg;
         }
-
+        //Used to pull in API data from D&D 6.0 API - weapon 2 stats
         public async void addWeap2Button_Clicked(System.Object sender, System.EventArgs e)
         {
             string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
@@ -133,8 +131,8 @@ namespace Dunjin
         }
 
 
-
-        public async void DD_API()
+        //Used to pull in API data from D&D 6.0 API - weapons stats
+        /*public async void DD_API()
         {
             string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
             var handler = new HttpClientHandler();
@@ -147,7 +145,7 @@ namespace Dunjin
 
             _weaponName = weaponName;
             _weaponDmg = weaponDmg;
-         }
+        }*/
 
         //Updates DB with character info
         private async void confirmButton_Clicked(System.Object sender, System.EventArgs e)
