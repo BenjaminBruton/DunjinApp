@@ -242,9 +242,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Initiative",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
@@ -296,9 +296,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Attack1",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -340,9 +340,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Damage1",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
@@ -394,9 +394,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Attack2",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -438,9 +438,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Damage2",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
@@ -473,9 +473,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Strength",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -510,9 +510,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Dexterity",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -547,9 +547,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Constitution",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -584,9 +584,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Intelligence",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -621,9 +621,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Wisdom",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -658,9 +658,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Charisma",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 
@@ -792,9 +792,9 @@ namespace Dunjin
             {
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Custom",
-                CharacterId = App.character.Id,
-                CampaignId = App.character.CampaignId,
-                UserId = App.character.UserId,
+                CharacterId = character.Id,
+                CampaignId = character.CampaignId,
+                UserId = character.UserId,
                 CritHit = criticalRoll
             };
 

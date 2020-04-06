@@ -60,8 +60,8 @@ namespace Dunjin
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Initiative",
                 CharacterId = "DUNGEON MASTER",
-                CampaignId = App.campaign.Id,
-                UserId = App.campaign.UserId
+                CampaignId = campaign.Id,
+                UserId = campaign.UserId
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
@@ -194,8 +194,8 @@ namespace Dunjin
                 RollNum = Convert.ToInt32(rollOutput.Text),
                 RollType = "Custom",
                 CharacterId = "DUNGEON MASTER",
-                CampaignId = App.campaign.Id,
-                UserId = App.campaign.UserId
+                CampaignId = campaign.Id,
+                UserId = campaign.UserId
             };
 
             await App.MobileService.GetTable<Rolls>().InsertAsync(roll);
