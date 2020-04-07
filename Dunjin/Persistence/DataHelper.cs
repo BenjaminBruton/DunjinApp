@@ -6,6 +6,8 @@ using Xamarin.Forms;
 
 namespace Dunjin.Persistence
 {
+
+    //This was used for the initial SQLite implementation but is currently not used.
     public class DataHelper
     {
         [Table("Users")]

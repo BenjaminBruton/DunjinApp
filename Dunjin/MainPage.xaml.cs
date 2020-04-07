@@ -14,9 +14,38 @@ namespace Dunjin
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        string hashedPassword;
+
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        //used for hashing/salting again
+        public string CreateSalt(int size)
+        {
+            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            var buff = new byte[size];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
+        }
+
+        public string GenerateSHA256Hash(string input, string salt)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
+            System.Security.Cryptography.SHA256Managed sha256HashString =
+                new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256HashString.ComputeHash(bytes);
+
+            return ByteArrayToHexString(hash);
+        }
+
+        public static string ByteArrayToHexString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
         }
 
         private async void LoginButton_Clicked(System.Object sender, System.EventArgs e)
@@ -25,6 +54,8 @@ namespace Dunjin
 
             bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
             bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
+
+            
 
             if (isEmailEmpty || isPasswordEmpty)
             {
@@ -35,11 +66,22 @@ namespace Dunjin
                 var user = (await App.MobileService.GetTable<Users>()
                 .Where(u => u.Email == emailEntry.Text).ToListAsync()).FirstOrDefault();
 
-                if(user != null)
+
+                if (user != null)
                 {
                     App.user = user;
 
-                    if (user.Password == passwordEntry.Text)                       
+                    //Used for 'legacy' accounts made before the hashing/salt was adding (they don't have security)
+                    if (App.user.Salt == null)
+                    {
+                        hashedPassword = passwordEntry.Text;
+                    }
+                    else
+                    {
+                        hashedPassword = GenerateSHA256Hash(passwordEntry.Text, App.user.Salt);
+                    }
+                    
+                    if (user.Password == hashedPassword)                       
                         await Navigation.PushAsync(new RoleSelection());
                     else
                         await DisplayAlert("Error", "Email or Password are Incorrect", "Ok");
