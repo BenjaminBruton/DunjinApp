@@ -64,24 +64,37 @@ namespace Dunjin
                 }
                 else
                 {
-                    //Used to store the full hashed password as well as just the salt separately.
-                    string salt = CreateSalt(10);
-                    string hashedPassword = GenerateSHA256Hash(password.Text, salt);
 
-                   Users user = new Users()
+                    var userExists = await App.MobileService.GetTable<Users>()
+                        .Select(use => use.Email).ToListAsync();
+                    if (userExists.Contains(emailEntry.Text))
                     {
-                        Username = userName.Text,
-                        Email = emailEntry.Text,
-                        Password = hashedPassword,
-                        Salt = salt
-                    };
+                        await DisplayAlert("Uh Oh", "Email Already in Use", "Ok");
 
-                    await App.MobileService.GetTable<Users>().InsertAsync(user);
+                        await Navigation.PushAsync(new Registration());
+                    }
+                    else
+                    {
+                        //Used to store the full hashed password as well as just the salt separately.
+                        string salt = CreateSalt(10);
+                        string hashedPassword = GenerateSHA256Hash(password.Text, salt);
 
-                    await DisplayAlert("Success", "Account Successfully Created!", "Ok");
+                        Users user = new Users()
+                        {
+                            Username = userName.Text,
+                            Email = emailEntry.Text,
+                            Password = hashedPassword,
+                            Salt = salt
+                        };
 
-                    await Navigation.PushAsync(new MainPage());
-                }
+                        await App.MobileService.GetTable<Users>().InsertAsync(user);
+
+                        await DisplayAlert("Success", "Account Successfully Created!", "Ok");
+
+                        await Navigation.PushAsync(new MainPage());
+
+                    }
+                }           
             }
         }
     }
