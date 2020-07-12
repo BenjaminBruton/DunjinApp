@@ -4,6 +4,7 @@ using Dunjin.Model;
 using Xamarin.Forms;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Text;
+using System.Threading;
 
 namespace Dunjin
 {
@@ -90,6 +91,8 @@ namespace Dunjin
                         await App.MobileService.GetTable<Users>().InsertAsync(user);
 
                         await DisplayAlert("Success", "Account Successfully Created!", "Ok");
+
+                        Thread.Sleep(2000);
 
                         await Navigation.PushAsync(new MainPage());
 

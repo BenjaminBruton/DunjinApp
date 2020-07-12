@@ -89,32 +89,48 @@ namespace Dunjin
         //Used to pull in API data from D&D 6.0 API - weapons 1 stats
         public async void addWeap1Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
-            var handler = new HttpClientHandler();
-            HttpClient client = new HttpClient(handler);
-            string result = await client.GetStringAsync(url);
+            if (searchBar.Text == "Start typing weapon name..." || searchBar.Text == null)
+            {
+                await DisplayAlert("Try Again", "Search for a weapon in the search bar above before clicking 'Add Weap'", "Ok");
+            }
+            else
+            {
+                string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
+                var handler = new HttpClientHandler();
+                HttpClient client = new HttpClient(handler);
+                string result = await client.GetStringAsync(url);
 
-            var resultObject = JObject.Parse(result);
-            string weaponName = resultObject["name"].ToString();
-            string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
+                var resultObject = JObject.Parse(result);
+                string weaponName = resultObject["name"].ToString();
+                string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
 
-            weapon1.Text = weaponName;
-            w1dmg.Text = weaponDmg;
+                weapon1.Text = weaponName;
+                w1dmg.Text = weaponDmg;
+            }
+            
         }
         //Used to pull in API data from D&D 6.0 API - weapon 2 stats
         public async void addWeap2Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
-            var handler = new HttpClientHandler();
-            HttpClient client = new HttpClient(handler);
-            string result = await client.GetStringAsync(url);
+            if (searchBar.Text == "Start typing weapon name..." || searchBar.Text == null)
+            {
+                await DisplayAlert("Try Again", "Search for a weapon in the search bar above before clicking 'Add Weap'", "Ok");
+            }
+            else
+            {
+                string url = "http://dnd5eapi.co/api/equipment/" + searchResults.SelectedItem;
+                var handler = new HttpClientHandler();
+                HttpClient client = new HttpClient(handler);
+                string result = await client.GetStringAsync(url);
 
-            var resultObject = JObject.Parse(result);
-            string weaponName = resultObject["name"].ToString();
-            string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
+                var resultObject = JObject.Parse(result);
+                string weaponName = resultObject["name"].ToString();
+                string weaponDmg = resultObject["damage"]["damage_dice"].ToString();
 
-            weapon2.Text = weaponName;
-            w2dmg.Text = weaponDmg;
+                weapon2.Text = weaponName;
+                w2dmg.Text = weaponDmg;
+            }
+            
         }
 
         public async void saveWeaps_Clicked(System.Object sender, System.EventArgs e)
